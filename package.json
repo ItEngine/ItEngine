@@ -1,0 +1,23 @@
+{
+  "name": "itengine",
+  "version": "1.0.0",
+  "description": "Página personal para el proyecto freelance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Martín Peveri",
+  "license": "MIT",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.9.2",
+    "gulp-typescript-angular": "^0.1.0",
+    "live-server": "^0.8.2",
+    "systemjs": "^0.19.5"
+  }
+}

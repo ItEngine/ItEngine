@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>ItEngine soluciones tecnológicas</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><img src="logo.png" width="100" height="60"></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center">ItEngine</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Soluciones tecnológicas modernas.</h5>
+        </div>
+        <div class="row center">
+          <a href="#contacto" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Contáctenos</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="city2.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Sistemas Web</h5>
+
+            <p class="light"> Desarrollo de páginas y sistemas web. Utilizando lenguajes como Php, Python, Javascript, etc.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Aplicación moviles</h5>
+
+            <p class="light">Desarrollo de aplicaciones moviles para Android y Ios.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Reparación de PC's y accesorios</h5>
+
+            <p class="light">Formateo, repareciones y ventas de accesorios para tu PC.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="city.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section" id="contacto">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <contact-form
+            title="Contáctenos" firstname="Nombre"
+            lastname="Apellido" email="Correo electrónico"
+            message="Mensaje" send="Enviar"
+            url="/enviar/" method="POST">
+          </contact-form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">ItEngine</h5>
+          <p class="grey-text text-lighten-4">Sistemas y sitos web de calidad y accesibles. Accesorios y reparaciones de confianza.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Síguenos en las redes sociales</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Facebook</a></li>
+            <li><a class="white-text" href="#!">Twitter</a></li>
+            <li><a class="white-text" href="#!">Linkedin</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+       <a class="brown-text text-lighten-3" href="/">ItEngine</a> - Buenos Aires - Argentina.
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../../js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script src="https://code.angularjs.org/tools/traceur-runtime.js"></script>
+  <script src="https://code.angularjs.org/tools/system.js"></script>
+  <script src="https://code.angularjs.org/tools/typescript.js"></script>
+  <script src="components/config.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-alpha.44/angular2.min.js"></script>
+
+  <script>
+      System.import('contactForm')
+        .catch(console.error.bind(console));
+  </script>
+
+  </body>
+</html>

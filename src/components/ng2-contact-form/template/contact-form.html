@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-content">
+    <div class="container">
+        <div class="row">
+            <div class="col m10 offset-m1 s12">
+                <h2 class="center-align">{{ title }}</h2>
+                <p>{{ legend }}</p>
+                <div class="row">
+                    <form method="{{ method }}" action="{{ url }}" class="col s12">
+                        <div class="row">
+                            <div class="input-field col m6 s12">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">{{ firstname }}</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">{{ lastname }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <i class="mdi-content-mail prefix"></i>
+                                <input id="email" type="email" class="validate" required>
+                                <label for="email">{{ email }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <textarea id="message" class="materialize-textarea"></textarea>
+                              <label for="message">{{ message }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m12">
+                             <p class="right-align">
+                               <button class="btn btn-large waves-effect waves-light" type="button" name="action">{{ send }}</button>
+                             </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

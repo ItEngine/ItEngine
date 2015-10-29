@@ -1,0 +1,9 @@
+{
+	"files": [
+		"components/ng2-contact-form/contact-form.ts"
+	],
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "commonjs"
+	}
+}
