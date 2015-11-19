@@ -25,6 +25,7 @@ class ComponentContactForm {
   private send:string;
   private url:string;
   private method:string;
+
   constructor(private element:ElementRef) {
     //Get value properties
     this.title = this.element.nativeElement.title;
@@ -45,6 +46,10 @@ class ComponentContactForm {
     this.message = typeof this.message !== 'undefined' ? this.message : "Message";
     this.url = typeof this.url !== 'undefined' ? this.url : "/send/";
     this.method = typeof this.method !== 'undefined' ? this.method : "POST";
+  }
+
+  send_email(event, firstname, lastname, email, message){
+    console.log("Entro");
   }
 
 }

@@ -28,6 +28,9 @@ var ComponentContactForm = (function () {
         this.url = typeof this.url !== 'undefined' ? this.url : "/send/";
         this.method = typeof this.method !== 'undefined' ? this.method : "POST";
     }
+    ComponentContactForm.prototype.send_email = function (event, firstname, lastname, email, message) {
+        console.log("Entro");
+    };
     ComponentContactForm = __decorate([
         angular2_1.Component({
             selector: 'contact-form',
