@@ -8,9 +8,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var angular2_2 = require("angular2/angular2");
+var angular2_3 = require('angular2/angular2');
 var ComponentContactForm = (function () {
-    function ComponentContactForm(element) {
+    function ComponentContactForm(element, fb) {
         this.element = element;
+        this.myForm = fb.group({
+            "firstname": ["", angular2_3.Validators.required],
+            "lastname": ["", angular2_3.Validators.required],
+            "email": ["", angular2_3.Validators.required],
+            "message": ["", angular2_3.Validators.required],
+        });
         this.title = this.element.nativeElement.title;
         this.firstname = this.element.nativeElement.getAttribute("firstname");
         this.lastname = this.element.nativeElement.getAttribute("lastname");
@@ -28,8 +36,20 @@ var ComponentContactForm = (function () {
         this.url = typeof this.url !== 'undefined' ? this.url : "/send/";
         this.method = typeof this.method !== 'undefined' ? this.method : "POST";
     }
-    ComponentContactForm.prototype.send_email = function (event, firstname, lastname, email, message) {
-        console.log("Entro");
+    ComponentContactForm.prototype.send_email = function (event, form) {
+        event.preventDefault();
+        var valid = true;
+        for (var item in form) {
+            if (form[item] == null || form[item] == "") {
+                valid = false;
+            }
+        }
+        if (valid) {
+            console.log("valid");
+        }
+        else {
+            console.log("invalid");
+        }
     };
     ComponentContactForm = __decorate([
         angular2_1.Component({
@@ -46,9 +66,10 @@ var ComponentContactForm = (function () {
             ]
         }),
         angular2_1.View({
+            directives: [angular2_2.FORM_DIRECTIVES, angular2_2.NgIf],
             templateUrl: "components/ng2-contact-form/template/contact-form.html"
         }), 
-        __metadata('design:paramtypes', [angular2_1.ElementRef])
+        __metadata('design:paramtypes', [angular2_1.ElementRef, angular2_2.FormBuilder])
     ], ComponentContactForm);
     return ComponentContactForm;
 })();

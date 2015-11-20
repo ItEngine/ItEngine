@@ -1,4 +1,7 @@
-import {bootstrap, Component, ElementRef, View} from 'angular2/angular2'
+import {bootstrap, Component, ElementRef, View} from 'angular2/angular2';
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup, NgIf} from "angular2/angular2";
+import {Validators} from 'angular2/angular2';
+//import {Http, Headers} from 'angular2/http';
 
 @Component({
   selector: 'contact-form',
@@ -14,6 +17,7 @@ import {bootstrap, Component, ElementRef, View} from 'angular2/angular2'
   ]
 })
 @View({
+  directives: [FORM_DIRECTIVES, NgIf],
   templateUrl: "components/ng2-contact-form/template/contact-form.html"
 })
 class ComponentContactForm {
@@ -25,8 +29,17 @@ class ComponentContactForm {
   private send:string;
   private url:string;
   private method:string;
+  private myForm: ControlGroup;
 
-  constructor(private element:ElementRef) {
+  //constructor(private element:ElementRef, fb: FormBuilder, public http: Http) {
+  constructor(private element:ElementRef, fb: FormBuilder) {
+    this.myForm = fb.group({
+      "firstname":  ["", Validators.required],
+      "lastname":  ["", Validators.required],
+      "email":  ["", Validators.required],
+      "message":  ["", Validators.required],
+    });
+
     //Get value properties
     this.title = this.element.nativeElement.title;
     this.firstname = this.element.nativeElement.getAttribute("firstname");
@@ -48,8 +61,36 @@ class ComponentContactForm {
     this.method = typeof this.method !== 'undefined' ? this.method : "POST";
   }
 
-  send_email(event, firstname, lastname, email, message){
-    console.log("Entro");
+  send_email(event, form){
+    event.preventDefault();
+    var valid = true;
+
+    //Valid items form
+    for(var item in form){
+      if(form[item] == null || form[item] == ""){
+        valid = false;
+      }
+    }
+
+    //Chequed if the form is valid
+    if(valid){
+      console.log("valid");
+      /*var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      //Parameters
+      var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
+      creds = creds + "&message=" + form['message'] + "&email=" + form['email'];*/
+
+      //Send email
+      /*this.http.post(this.url, creds, {
+        headers: headers
+        })
+        .map(res => res.json());*/
+    }else{
+      console.log("invalid");
+    }
+
   }
 
 }
