@@ -46,15 +46,15 @@ if($firstnameAux && $emailAux && $lastnameAux && $messageAux){
 
 	    $resultado = mail($to, $subject, $message, $headers);
 		if($resultado){
-			echo '<h4 class="alert-heading"><i class="fa fa-info-circle"></i>' . " Se envió el email con éxito.</h4>";
+			echo '<h5 class="card"><i class="mdi-action-info-outline"></i>' . " Se envió el email con éxito.</h5>";
 		}else{
-			echo '<h4 class="alert-heading"><i class="fa fa-info-circle"></i>' . " Error al enviar el email.</h4>";
+			echo '<h5 class="card"><i class="mdi-action-info-outline"></i>' . " Error al enviar el email.</h5>";
 		}
 	}else{
-		echo '<h4 class="alert-heading"><i class="fa fa-info-circle"></i>' . " Todos los campos del formulario son obligatorios.</h4>";
+		echo '<h5 class="card"><i class="mdi-action-info-outline"></i>' . " Todos los campos del formulario son obligatorios.</h5>";
 	}
 }else{
-	echo '<h4 class="alert-heading"><i class="fa fa-info-circle"></i>' . " Datos incorrectos.</h4>";
+	echo '<h5 class="card"><i class="mdi-action-info-outline"></i>' . " Datos incorrectos.</h5>";
 }
 
 ?>

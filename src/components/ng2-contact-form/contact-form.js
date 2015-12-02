@@ -45,7 +45,25 @@ var ComponentContactForm = (function () {
             }
         }
         if (valid) {
-            console.log("valid");
+            fetch(this.url, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fistname: form['firstname'],
+                    lastname: form['lastname'],
+                    message: form['message'],
+                    email: form['email']
+                })
+            }).then(function (response) {
+                var data = response.text();
+                data.then(function (message) {
+                    var result = document.querySelector("#result");
+                    result.innerHTML = message;
+                });
+            });
         }
         else {
             console.log("invalid");

@@ -1,7 +1,8 @@
+/// <reference path="../../declare/whatwg-fetch.d.ts" />
+
 import {bootstrap, Component, ElementRef, View} from 'angular2/angular2';
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, NgIf} from "angular2/angular2";
 import {Validators} from 'angular2/angular2';
-//import {Http, Headers} from 'angular2/http';
 
 @Component({
   selector: 'contact-form',
@@ -31,7 +32,6 @@ class ComponentContactForm {
   private method:string;
   private myForm: ControlGroup;
 
-  //constructor(private element:ElementRef, fb: FormBuilder, public http: Http) {
   constructor(private element:ElementRef, fb: FormBuilder) {
     this.myForm = fb.group({
       "firstname":  ["", Validators.required],
@@ -74,19 +74,26 @@ class ComponentContactForm {
 
     //Chequed if the form is valid
     if(valid){
-      console.log("valid");
-      /*var headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
-      //Parameters
-      var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
-      creds = creds + "&message=" + form['message'] + "&email=" + form['email'];*/
-
       //Send email
-      /*this.http.post(this.url, creds, {
-        headers: headers
+      fetch(this.url, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          fistname: form['firstname'],
+          lastname: form['lastname'],
+          message: form['message'],
+          email: form['email']
         })
-        .map(res => res.json());*/
+      }).then(function(response) {
+        var data = response.text();
+        data.then(function(message){
+          var result = <HTMLScriptElement>document.querySelector("#result");
+          result.innerHTML = message;
+        })
+      });
     }else{
       console.log("invalid");
     }

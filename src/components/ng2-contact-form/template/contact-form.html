@@ -5,6 +5,7 @@
             <div class="col m10 offset-m1 s12">
                 <h2 class="center-align">{{ title }}</h2>
                 <p>{{ legend }}</p>
+                <div id="result"></div>
                 <div class="row">
                     <form method="{{ method }}" [ng-form-model]="myForm" class="col s12" (submit)="send_email($event, myForm.value)">
                         <div class="row">
