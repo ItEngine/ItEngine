@@ -1,5 +1,3 @@
-/// <reference path="../../declare/whatwg-fetch.d.ts" />
-
 import {bootstrap, Component, ElementRef, View} from 'angular2/angular2';
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, NgIf} from "angular2/angular2";
 import {Validators} from 'angular2/angular2';
@@ -61,6 +59,7 @@ class ComponentContactForm {
     this.method = typeof this.method !== 'undefined' ? this.method : "POST";
   }
 
+  //This method valid data form and send email
   send_email(event, form){
     event.preventDefault();
     var valid = true;
@@ -74,30 +73,31 @@ class ComponentContactForm {
 
     //Chequed if the form is valid
     if(valid){
+      //Parameters
+      var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
+      creds = creds + "&message=" + form['message'] + "&email=" + form['email'];
+
       //Send email
       fetch(this.url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
+          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
         },
-        body: JSON.stringify({
-          fistname: form['firstname'],
-          lastname: form['lastname'],
-          message: form['message'],
-          email: form['email']
-        })
-      }).then(function(response) {
-        var data = response.text();
-        data.then(function(message){
+        body: creds
+      })
+      .then(function (data) {
+        var res = data.text();
+        res.then(function (message) {
           var result = <HTMLScriptElement>document.querySelector("#result");
           result.innerHTML = message;
-        })
+        });
+      })
+      .catch(function (error) {
+        console.log('Request failed', error);
       });
     }else{
       console.log("invalid");
     }
-
   }
 
 }

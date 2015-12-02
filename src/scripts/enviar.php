@@ -25,7 +25,7 @@ if($firstnameAux && $emailAux && $lastnameAux && $messageAux){
 
 		//Email
 		$consulta = "";
-		$consulta = $consulta . "Nombre: " . $fistname . " <br>";
+		$consulta = $consulta . "Nombre: " . $firstname . " <br>";
 		$consulta = $consulta . "Apellido: " . $lastname . " <br>";
 		$consulta = $consulta . "Email: " . $email . " <br>";
 		$consulta = $consulta . "Mensaje: " . $message . " <br>";

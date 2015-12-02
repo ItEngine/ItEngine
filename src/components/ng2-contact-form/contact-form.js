@@ -45,24 +45,24 @@ var ComponentContactForm = (function () {
             }
         }
         if (valid) {
+            var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
+            creds = creds + "&message=" + form['message'] + "&email=" + form['email'];
             fetch(this.url, {
-                method: "POST",
+                method: 'POST',
                 headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
+                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
                 },
-                body: JSON.stringify({
-                    fistname: form['firstname'],
-                    lastname: form['lastname'],
-                    message: form['message'],
-                    email: form['email']
-                })
-            }).then(function (response) {
-                var data = response.text();
-                data.then(function (message) {
+                body: creds
+            })
+                .then(function (data) {
+                var res = data.text();
+                res.then(function (message) {
                     var result = document.querySelector("#result");
                     result.innerHTML = message;
                 });
+            })
+                .catch(function (error) {
+                console.log('Request failed', error);
             });
         }
         else {
