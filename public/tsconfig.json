@@ -1,0 +1,10 @@
+{
+	"files": [
+		"components/ng2-contact-form/contact-form.ts",
+		"declare/whatwg-fetch.d.ts"
+	],
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "commonjs"
+	}
+}

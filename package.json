@@ -2,7 +2,7 @@
   "name": "itengine",
   "version": "1.0.0",
   "description": "Página personal para el proyecto freelance.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,11 @@
   "author": "Martín Peveri",
   "license": "MIT",
   "dependencies": {
-    "angular2": "2.0.0-alpha.44"
+    "angular2": "2.0.0-alpha.44",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "nodemailer": "^0.7.1",
+    "typescript": "^1.7.3"
   },
   "devDependencies": {
     "browserify": "^12.0.1",

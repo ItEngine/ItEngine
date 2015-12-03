@@ -94,7 +94,7 @@
             title="Contáctenos" firstname="Nombre"
             lastname="Apellido" email="Correo electrónico"
             message="Mensaje" send="Enviar"
-            url="scripts/enviar.php" method="POST">
+            url="send_email" method="POST">
           </contact-form>
         </div>
       </div>
@@ -133,14 +133,13 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../../js/materialize.js"></script>
+  <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="bower_components/fetch/fetch.js"></script>
-  <script src="https://code.angularjs.org/tools/traceur-runtime.js"></script>
-  <script src="https://code.angularjs.org/tools/system.js"></script>
-  <script src="https://code.angularjs.org/tools/typescript.js"></script>
+  <script src="/scripts/systemjs/dist/system.js"></script>
+  <script src="/scripts/typescript/lib/typescript.js"></script>
   <script src="components/config.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-alpha.44/angular2.min.js"></script>
+  <script src="/scripts/angular2/bundles/angular2.min.js"></script>
+  <script src="/scripts_bower/fetch/fetch.js"></script>
 
   <script>
       System.import('contactForm')
