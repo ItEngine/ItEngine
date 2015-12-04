@@ -47,7 +47,7 @@ app.post('/send_email',function(req,res){
       res.end("Error al enviar el email.");
     }else{
       console.log("Message sent: " + response.message);
-      res.end("El email se ha enviado correctamente!");
+      res.end("¡El email se ha enviado correctamente!");
     }
   });
 });

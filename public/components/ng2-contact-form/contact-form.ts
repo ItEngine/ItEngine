@@ -77,6 +77,19 @@ class ComponentContactForm {
       var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
       creds = creds + "&message=" + form['message'] + "&email=" + form['email'];
 
+      //Result to send email
+      var result = <HTMLScriptElement>document.querySelector("#result");
+      var result_card = <HTMLScriptElement>document.querySelector("#result_card");
+      var progress = <HTMLScriptElement>document.querySelector(".tiny-contact-progress");
+      //Hide elements
+      result_card.style.display = "none";
+      //Show progress
+      progress.removeAttribute("style");
+
+      //For hide element progress
+      var att = document.createAttribute("class");
+      att.value = "hide-element"
+
       //Send email
       fetch(this.url, {
         method: 'POST',
@@ -88,15 +101,23 @@ class ComponentContactForm {
       .then(function (data) {
         var res = data.text();
         res.then(function (message) {
-          var result = <HTMLScriptElement>document.querySelector("#result");
           result.innerHTML = message;
+          //Show card message and hide progress
+          result_card.style.display = "block";
+          progress.setAttributeNode(att);
         });
       })
       .catch(function (error) {
-        console.log('Request failed', error);
+        result.innerHTML = "Error al procesar el formulario";
+        //Show card message and hide progress
+        result_card.style.display = "block";
+        progress.setAttributeNode(att);
       });
     }else{
-      console.log("invalid");
+      result.innerHTML = "Formulario invalido";
+      //Show card message and hide progress
+      result_card.style.display = "block";
+      progress.setAttributeNode(att);
     }
   }
 

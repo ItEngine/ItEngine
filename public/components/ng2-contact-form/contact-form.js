@@ -47,6 +47,13 @@ var ComponentContactForm = (function () {
         if (valid) {
             var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
             creds = creds + "&message=" + form['message'] + "&email=" + form['email'];
+            var result = document.querySelector("#result");
+            var result_card = document.querySelector("#result_card");
+            var progress = document.querySelector(".tiny-contact-progress");
+            result_card.style.display = "none";
+            progress.removeAttribute("style");
+            var att = document.createAttribute("class");
+            att.value = "hide-element";
             fetch(this.url, {
                 method: 'POST',
                 headers: {
@@ -57,16 +64,21 @@ var ComponentContactForm = (function () {
                 .then(function (data) {
                 var res = data.text();
                 res.then(function (message) {
-                    var result = document.querySelector("#result");
                     result.innerHTML = message;
+                    result_card.style.display = "block";
+                    progress.setAttributeNode(att);
                 });
             })
                 .catch(function (error) {
-                console.log('Request failed', error);
+                result.innerHTML = "Error al procesar el formulario";
+                result_card.style.display = "block";
+                progress.setAttributeNode(att);
             });
         }
         else {
-            console.log("invalid");
+            result.innerHTML = "Formulario invalido";
+            result_card.style.display = "block";
+            progress.setAttributeNode(att);
         }
     };
     ComponentContactForm = __decorate([

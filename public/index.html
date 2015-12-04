@@ -11,36 +11,58 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="/" class="brand-logo"><img src="logo.png" height="60"></a>
-    </div>
-  </nav>
+  <!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
 
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center">ItEngine</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Soluciones tecnológicas modernas.</h5>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+
+<!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="#" id="logo-container" class="brand-logo"> <img src="logo.png" height="50" style="margin-bottom: -12px;" /> ItEngine</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#clientes">Clientes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                  <li><a href="#servicios">Servicios</a></li>
+                  <li><a href="#clientes">Clientes</a></li>
+                  <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
         </div>
-        <div class="row center">
-          <a href="#contacto" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Contáctenos</a>
-        </div>
-        <br><br>
+    </nav>
+</div>
 
-      </div>
+<!--Intro-->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="text_h center header cd-headline letters type">
+            <span class="cd-words-wrapper waiting">
+                <b class="is-visible"> ItEngine</b>
+            </span>
+            <br>
+            <span>Soluciones tecnológicas modernas.  </span>
+        </h1>
     </div>
-    <div class="parallax"><img src="city2.jpg" alt="Unsplashed background img 1"></div>
-  </div>
+</div>
 
-
-  <div class="container">
+<!-- Servicios  -->
+<div class="container" id="servicios">
     <div class="section">
-
-      <!--   Icon Section   -->
+      <h2 class="header text_b">Servicios </h2>
       <div class="row">
+
+        <h2 class="center header text_h2">Sistemas web y aplicaciones moviles de calidad. Accesorios y reparaciones de confianza.  </h2>
+
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">important_devices</i></h2>
@@ -70,22 +92,65 @@
       </div>
 
     </div>
-  </div>
+</div>
 
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">Su empresa o negocio en la web.</h5>
+<!--Clientes-->
+<div class="section scrollspy" id="clientes" style="background: rgb(247,247,247);">
+    <div class="container">
+        <h2 class="header text_b">Clientes </h2>
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="clients/itsouth.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Consultora tecnológica <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="http://itsouth.com.ar/" target="_blank">ItSouth</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Consultora tecnológica <i class="mdi-navigation-close right"></i></span>
+                        <p>Se desarrollaron sistemas y aplicaciones moviles en tecnologías PHP, Laravel, Ionic, AngularJs, Extjs, MySql, etc.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="clients/fejipba.png" width="100" height="100">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Concursos de jilgueros <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="http://fejipba.com.ar/" target="_blank">F.E.J.I.P.B.A</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Federacion de jilguericultura de la provincia de Buenos Aires<i class="mdi-navigation-close right"></i></span>
+                        <p>Se desarrolló el sistema de concursos de la federación en tecnologías PHP, ExtJs y MySql.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="clients/prive.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Cerraduras y laminación <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="http://www.cerradurasprive.com.ar/es/" target="_blank">Prive</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Prive <i class="mdi-navigation-close right"></i></span>
+                        <p>Desarrollo de sistemas para migrar datos de sistemas satelitales al central. En tecnología .Net.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="parallax"><img src="city.jpg" alt="Unsplashed background img 2"></div>
-  </div>
+</div>
 
-  <div class="container">
-    <div class="section" id="contacto">
+<!--Contacto-->
+<div id="contacto">
+    <div class="section">
 
       <div class="row">
         <div class="col s12 center">
@@ -102,33 +167,33 @@
     </div>
   </div>
 
-  <footer class="page-footer teal">
+
+<footer class="page-footer teal default_color scrollspy">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">ItEngine</h5>
+        <p class="grey-text text-lighten-4">Sistemas web y aplicaciones moviles de calidad. <br> Accesorios y reparaciones de confianza.</p>
+
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Síguenos en las redes sociales</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Facebook</a></li>
+          <li><a class="white-text" href="#!">Twitter</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">ItEngine</h5>
-          <p class="grey-text text-lighten-4">Sistemas y sitos web de calidad y accesibles. Accesorios y reparaciones de confianza.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Síguenos en las redes sociales</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Facebook</a></li>
-            <li><a class="white-text" href="#!">Twitter</a></li>
-            <li><a class="white-text" href="#!">Linkedin</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-        </div>
-      </div>
+     <a class="white-text text-lighten-3" href="/">ItEngine</a> - Buenos Aires - Argentina.
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-       <a class="brown-text text-lighten-3" href="/">ItEngine</a> - Buenos Aires - Argentina.
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 
   <!--  Scripts-->

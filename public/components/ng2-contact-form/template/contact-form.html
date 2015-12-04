@@ -1,47 +1,67 @@
-<div class="card">
-  <div class="card-content">
-    <div class="container">
-        <div class="row">
-            <div class="col m10 offset-m1 s12">
-                <h2 class="center-align">{{ title }}</h2>
-                <p>{{ legend }}</p>
-                <div id="result"></div>
-                <div class="row">
-                    <form method="{{ method }}" [ng-form-model]="myForm" class="col s12" (submit)="send_email($event, myForm.value)">
-                        <div class="row">
-                            <div class="input-field col m6 s12">
-                                <input id="first_name" type="text" class="validate" ng-control="firstname">
-                                <label for="first_name">{{ firstname }}</label>
-                            </div>
-                            <div class="input-field col m6 s12">
-                                <input id="last_name" type="text" class="validate" ng-control="lastname">
-                                <label for="last_name">{{ lastname }}</label>
-                            </div>
+<style>
+.tiny-contact-progress{
+  margin-right: 5px; width: 25px; height: 25px
+}
+.hide-element{
+  display: none;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col m10 offset-m1 s12">
+            <h2 class="header text_b">{{ title }} </h2>
+            <p>{{ legend }}</p>
+            <div class="card-panel" id="result_card" style="display: none">
+               <i class="tiny material-icons">info_outline</i> <span class="grey-text text-darken-4" id="result"></span>
+            </div>
+            <div class="row">
+                <form method="{{ method }}" [ng-form-model]="myForm" class="col s12" (submit)="send_email($event, myForm.value)">
+                    <div class="row">
+                        <div class="input-field col m6 s12">
+                            <input id="first_name" type="text" class="validate" ng-control="firstname">
+                            <label for="first_name">{{ firstname }}</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field">
-                                <i class="mdi-content-mail prefix"></i>
-                                <input id="email" type="email" class="validate" required ng-control="email">
-                                <label for="email">{{ email }}</label>
-                            </div>
+                        <div class="input-field col m6 s12">
+                            <input id="last_name" type="text" class="validate" ng-control="lastname">
+                            <label for="last_name">{{ lastname }}</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                              <textarea id="message" class="materialize-textarea" ng-control="message"></textarea>
-                              <label for="message">{{ message }}</label>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="mdi-content-mail prefix"></i>
+                            <input id="email" type="email" class="validate" required ng-control="email">
+                            <label for="email">{{ email }}</label>
                         </div>
-                        <div class="row">
-                            <div class="col m12">
-                             <p class="right-align">
-                               <input type="submit" class="btn btn-large waves-effect waves-light" name="action" value="{{ send }}" />
-                             </p>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <textarea id="message" class="materialize-textarea" ng-control="message"></textarea>
+                          <label for="message">{{ message }}</label>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m12">
+                         <p class="right-align">
+
+                           <div class="preloader-wrapper small active tiny-contact-progress" style="display: none">
+                              <div class="spinner-layer spinner-green-only">
+                                <div class="circle-clipper left">
+                                  <div class="circle"></div>
+                                </div><div class="gap-patch">
+                                  <div class="circle"></div>
+                                </div><div class="circle-clipper right">
+                                  <div class="circle"></div>
+                                </div>
+                              </div>
+                           </div>
+
+                           <input type="submit" class="btn-large waves-effect waves-light teal default_color scrollspy" name="action" value="{{ send }}" />
+                         </p>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-      </div>
     </div>
   </div>
