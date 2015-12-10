@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,22 +20,26 @@ var ComponentContactForm = (function () {
             "email": ["", angular2_3.Validators.required],
             "message": ["", angular2_3.Validators.required],
         });
-        this.title = this.element.nativeElement.title;
-        this.firstname = this.element.nativeElement.getAttribute("firstname");
-        this.lastname = this.element.nativeElement.getAttribute("lastname");
-        this.email = this.element.nativeElement.getAttribute("email");
-        this.send = this.element.nativeElement.getAttribute("send");
-        this.message = this.element.nativeElement.getAttribute("message");
-        this.url = this.element.nativeElement.getAttribute("url");
-        this.method = this.element.nativeElement.getAttribute("method");
-        this.title = typeof this.title !== 'undefined' ? this.title : "Title";
-        this.firstname = typeof this.firstname !== 'undefined' ? this.firstname : "First Name";
-        this.lastname = typeof this.lastname !== 'undefined' ? this.lastname : "Last Name";
-        this.email = typeof this.email !== 'undefined' ? this.email : "Email";
-        this.send = typeof this.send !== 'undefined' ? this.send : "Send";
-        this.message = typeof this.message !== 'undefined' ? this.message : "Message";
-        this.url = typeof this.url !== 'undefined' ? this.url : "/send/";
-        this.method = typeof this.method !== 'undefined' ? this.method : "POST";
+        this.firstname = this.myForm.controls['firstname'];
+        this.lastname = this.myForm.controls['lastname'];
+        this.email = this.myForm.controls['email'];
+        this.message = this.myForm.controls['message'];
+        this.titleAttr = this.element.nativeElement.title;
+        this.firstnameAttr = this.element.nativeElement.getAttribute("firstname");
+        this.lastnameAttr = this.element.nativeElement.getAttribute("lastname");
+        this.emailAttr = this.element.nativeElement.getAttribute("email");
+        this.sendAttr = this.element.nativeElement.getAttribute("send");
+        this.messageAttr = this.element.nativeElement.getAttribute("message");
+        this.urlAttr = this.element.nativeElement.getAttribute("url");
+        this.methodAttr = this.element.nativeElement.getAttribute("method");
+        this.titleAttr = typeof this.titleAttr !== 'undefined' ? this.titleAttr : "Title";
+        this.firstnameAttr = typeof this.firstnameAttr !== 'undefined' ? this.firstnameAttr : "First Name";
+        this.lastnameAttr = typeof this.lastnameAttr !== 'undefined' ? this.lastnameAttr : "Last Name";
+        this.emailAttr = typeof this.emailAttr !== 'undefined' ? this.emailAttr : "Email";
+        this.sendAttr = typeof this.sendAttr !== 'undefined' ? this.sendAttr : "Send";
+        this.messageAttr = typeof this.messageAttr !== 'undefined' ? this.messageAttr : "Message";
+        this.urlAttr = typeof this.urlAttr !== 'undefined' ? this.urlAttr : "/send/";
+        this.methodAttr = typeof this.methodAttr !== 'undefined' ? this.methodAttr : "POST";
     }
     ComponentContactForm.prototype.send_email = function (event, form) {
         event.preventDefault();
@@ -44,17 +49,15 @@ var ComponentContactForm = (function () {
                 valid = false;
             }
         }
+        var result = document.querySelector("#result");
+        var result_card = document.querySelector("#result_card");
+        var progress = document.querySelector(".tiny-contact-progress");
+        result_card.style.display = "none";
+        progress.removeAttribute("style");
         if (valid) {
             var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
             creds = creds + "&message=" + form['message'] + "&email=" + form['email'];
-            var result = document.querySelector("#result");
-            var result_card = document.querySelector("#result_card");
-            var progress = document.querySelector(".tiny-contact-progress");
-            result_card.style.display = "none";
-            progress.removeAttribute("style");
-            var att = document.createAttribute("class");
-            att.value = "hide-element";
-            fetch(this.url, {
+            fetch(this.urlAttr, {
                 method: 'POST',
                 headers: {
                     "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -66,19 +69,17 @@ var ComponentContactForm = (function () {
                 res.then(function (message) {
                     result.innerHTML = message;
                     result_card.style.display = "block";
-                    progress.setAttributeNode(att);
+                    progress.style.display = "none";
                 });
             })
                 .catch(function (error) {
                 result.innerHTML = "Error al procesar el formulario";
                 result_card.style.display = "block";
-                progress.setAttributeNode(att);
+                progress.style.display = "none";
             });
         }
         else {
-            result.innerHTML = "Formulario invalido";
-            result_card.style.display = "block";
-            progress.setAttributeNode(att);
+            progress.style.display = "none";
         }
     };
     ComponentContactForm = __decorate([

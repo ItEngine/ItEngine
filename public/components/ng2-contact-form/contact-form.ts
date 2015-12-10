@@ -1,5 +1,5 @@
 import {bootstrap, Component, ElementRef, View} from 'angular2/angular2';
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup, NgIf} from "angular2/angular2";
+import {FORM_DIRECTIVES, FormBuilder, AbstractControl, ControlGroup, NgIf} from "angular2/angular2";
 import {Validators} from 'angular2/angular2';
 
 @Component({
@@ -20,17 +20,22 @@ import {Validators} from 'angular2/angular2';
   templateUrl: "components/ng2-contact-form/template/contact-form.html"
 })
 class ComponentContactForm {
-  private title:string;
-  private firstname:string;
-  private lastname:string;
-  private email:string;
-  private message:string;
-  private send:string;
-  private url:string;
-  private method:string;
+  private titleAttr:string;
+  private firstnameAttr:string;
+  private lastnameAttr:string;
+  private emailAttr:string;
+  private messageAttr:string;
+  private sendAttr:string;
+  private urlAttr:string;
+  private methodAttr:string;
   private myForm: ControlGroup;
+  firstname: AbstractControl;
+  lastname: AbstractControl;
+  email: AbstractControl;
+  message: AbstractControl;
 
   constructor(private element:ElementRef, fb: FormBuilder) {
+    //For validate form
     this.myForm = fb.group({
       "firstname":  ["", Validators.required],
       "lastname":  ["", Validators.required],
@@ -38,25 +43,31 @@ class ComponentContactForm {
       "message":  ["", Validators.required],
     });
 
+    //Control validation
+    this.firstname = this.myForm.controls['firstname'];
+    this.lastname = this.myForm.controls['lastname'];
+    this.email = this.myForm.controls['email'];
+    this.message = this.myForm.controls['message'];
+
     //Get value properties
-    this.title = this.element.nativeElement.title;
-    this.firstname = this.element.nativeElement.getAttribute("firstname");
-    this.lastname = this.element.nativeElement.getAttribute("lastname");
-    this.email = this.element.nativeElement.getAttribute("email");
-    this.send = this.element.nativeElement.getAttribute("send");
-    this.message = this.element.nativeElement.getAttribute("message");
-    this.url = this.element.nativeElement.getAttribute("url");
-    this.method = this.element.nativeElement.getAttribute("method");
+    this.titleAttr = this.element.nativeElement.title;
+    this.firstnameAttr = this.element.nativeElement.getAttribute("firstname");
+    this.lastnameAttr = this.element.nativeElement.getAttribute("lastname");
+    this.emailAttr = this.element.nativeElement.getAttribute("email");
+    this.sendAttr = this.element.nativeElement.getAttribute("send");
+    this.messageAttr = this.element.nativeElement.getAttribute("message");
+    this.urlAttr = this.element.nativeElement.getAttribute("url");
+    this.methodAttr = this.element.nativeElement.getAttribute("method");
 
     //Check properties
-    this.title = typeof this.title !== 'undefined' ? this.title : "Title";
-    this.firstname = typeof this.firstname !== 'undefined' ? this.firstname : "First Name";
-    this.lastname = typeof this.lastname !== 'undefined' ? this.lastname : "Last Name";
-    this.email = typeof this.email !== 'undefined' ? this.email : "Email";
-    this.send = typeof this.send !== 'undefined' ? this.send : "Send";
-    this.message = typeof this.message !== 'undefined' ? this.message : "Message";
-    this.url = typeof this.url !== 'undefined' ? this.url : "/send/";
-    this.method = typeof this.method !== 'undefined' ? this.method : "POST";
+    this.titleAttr = typeof this.titleAttr !== 'undefined' ? this.titleAttr : "Title";
+    this.firstnameAttr = typeof this.firstnameAttr !== 'undefined' ? this.firstnameAttr : "First Name";
+    this.lastnameAttr = typeof this.lastnameAttr !== 'undefined' ? this.lastnameAttr : "Last Name";
+    this.emailAttr = typeof this.emailAttr !== 'undefined' ? this.emailAttr : "Email";
+    this.sendAttr = typeof this.sendAttr !== 'undefined' ? this.sendAttr : "Send";
+    this.messageAttr = typeof this.messageAttr !== 'undefined' ? this.messageAttr : "Message";
+    this.urlAttr = typeof this.urlAttr !== 'undefined' ? this.urlAttr : "/send/";
+    this.methodAttr = typeof this.methodAttr !== 'undefined' ? this.methodAttr : "POST";
   }
 
   //This method valid data form and send email
@@ -71,27 +82,24 @@ class ComponentContactForm {
       }
     }
 
+    //Result to send email
+    var result = <HTMLScriptElement>document.querySelector("#result");
+    var result_card = <HTMLScriptElement>document.querySelector("#result_card");
+    var progress = <HTMLScriptElement>document.querySelector(".tiny-contact-progress");
+
+    //Hide elements
+    result_card.style.display = "none";
+    //Show progress
+    progress.removeAttribute("style");
+
     //Chequed if the form is valid
     if(valid){
       //Parameters
       var creds = "firstname=" + form['firstname'] + "&lastname=" + form['lastname'];
       creds = creds + "&message=" + form['message'] + "&email=" + form['email'];
 
-      //Result to send email
-      var result = <HTMLScriptElement>document.querySelector("#result");
-      var result_card = <HTMLScriptElement>document.querySelector("#result_card");
-      var progress = <HTMLScriptElement>document.querySelector(".tiny-contact-progress");
-      //Hide elements
-      result_card.style.display = "none";
-      //Show progress
-      progress.removeAttribute("style");
-
-      //For hide element progress
-      var att = document.createAttribute("class");
-      att.value = "hide-element"
-
       //Send email
-      fetch(this.url, {
+      fetch(this.urlAttr, {
         method: 'POST',
         headers: {
           "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -104,20 +112,18 @@ class ComponentContactForm {
           result.innerHTML = message;
           //Show card message and hide progress
           result_card.style.display = "block";
-          progress.setAttributeNode(att);
+          progress.style.display = "none";
         });
       })
       .catch(function (error) {
         result.innerHTML = "Error al procesar el formulario";
         //Show card message and hide progress
         result_card.style.display = "block";
-        progress.setAttributeNode(att);
+        progress.style.display = "none";
       });
     }else{
-      result.innerHTML = "Formulario invalido";
-      //Show card message and hide progress
-      result_card.style.display = "block";
-      progress.setAttributeNode(att);
+      //Hide progress
+      progress.style.display = "none";
     }
   }
 
