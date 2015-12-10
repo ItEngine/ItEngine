@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "fetch": "~0.10.1"
+    "fetch": "~0.10.1",
+    "jquery": "~2.1.4"
   }
 }
