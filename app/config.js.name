@@ -1,0 +1,19 @@
+module.exports = {
+  name: 'ItEngine',
+  description: 'Sitio de la marca ItEngine.',
+  domain: 'localhost',
+  url: 'http://localhost',
+  env: 'development',
+  port: 3000,
+
+  database: {
+    domain: 'localhost',
+    name: 'itengine'
+  },
+
+  contact: {
+    service: "Gmail",
+    email: "",
+    password: ""
+  }
+}
