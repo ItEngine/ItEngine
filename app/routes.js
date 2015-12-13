@@ -7,6 +7,9 @@ const fs = require('fs');
 //My instance of app.js (this found because previosly export)
 const app = require(path.join(process.cwd(), 'app'));
 
+//Middleware of authentication
+const middlewareAuth = require("./middlewares/auth");
+
 //For get sync folder files controllers
 const glob = require('glob');
 
@@ -30,10 +33,25 @@ files.forEach(function(file) {
 // Routes of application
 module.exports = function(){
 
+  /*Main routes */
+
   //Index
   app.route('/').get(controllers.index.main);
 
   //For send email with form contact
   app.post('/send_email', controllers.email.indexFormContact);
+
+  /* Routes admin */
+
+  //login
+  app.route('/login')
+    .get(middlewareAuth.is_logging, controllers.login.main)
+    .post(controllers.login.login);
+
+  //Home
+  app.route('/admin').get(middlewareAuth.login_required, controllers.admin.index.main);
+
+  //Logout admin
+  app.route('/admin/logout').get(middlewareAuth.login_required, controllers.admin.index.logout);
 
 }

@@ -1,9 +1,9 @@
 'use strict'
 
-const path = require('path');
-
 module.exports = {
   main: function(req, res) {
-    return res.sendfile('./app/views/index.html');
+    //Load component contact form
+    let component = "System.import('contactForm').catch(console.error.bind(console));";
+    return res.render('index', {component: component, show_menu: true});
   }
 }

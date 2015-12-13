@@ -1,6 +1,7 @@
 {
 	"files": [
 		"components/ng2-contact-form/contact-form.ts",
+		"components/ng2-form-login/form-login.ts",
 		"declare/whatwg-fetch.d.ts"
 	],
 	"compilerOptions": {
