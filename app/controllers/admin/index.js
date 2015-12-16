@@ -4,7 +4,7 @@ module.exports = {
 
   //Show admin
   main: function(req, res) {
-    return res.render("admin/home", {is_admin: true});
+    return res.render("admin/home", {is_admin: true, session: req.session});
   },
 
   //Logout admin

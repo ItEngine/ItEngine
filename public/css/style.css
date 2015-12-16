@@ -24,6 +24,14 @@
     background-image: url("../city2.jpg")
 }
 
+#index-banner-admin {
+    min-height: 632px;
+    max-height: 864px;
+    height: 100%;
+    position: relative;
+    background-color: #2196F3;
+}
+
 #nav_f{
     box-shadow: none !important;
     -webkit-box-shadow:none !important;

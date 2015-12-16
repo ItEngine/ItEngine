@@ -54,4 +54,7 @@ module.exports = function(){
   //Logout admin
   app.route('/admin/logout').get(middlewareAuth.login_required, controllers.admin.index.logout);
 
+  //Crud users
+  app.route('/admin/users').get(middlewareAuth.login_required, controllers.admin.users.index);
+
 }
