@@ -3,7 +3,7 @@
 //For encrypt password
 const crypto = require('crypto');
 //Model user
-const User = require("../models/user.js")
+const User = require("../models/user.js");
 
 module.exports = {
   //Show form login

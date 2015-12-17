@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/newuser" class="waves-effect waves-light teal btn"> <span style="color: white">Agregar</span></a>
+    <table class="striped">
+       <thead>
+         <tr>
+             <th>Email</th>
+             <th>Acciones</th>
+         </tr>
+       </thead>
+
+       <tbody>
+         {{#each data}}
+           <tr>
+            <td>{{email}}</td>
+            <td>
+                <a class="waves-effect waves-light teal btn"> <span style="color: white">Modificar</span></a>
+                <a href="/admin/user/delete/{{_id}}" class="waves-effect waves-light red darken-1 btn"> <span style="color: white">Eliminar</span></a>
+            </td>
+          </tr>
+          {{/each}}
+       </tbody>
+     </table>
+  </div>
+</div>

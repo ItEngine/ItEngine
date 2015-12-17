@@ -56,5 +56,8 @@ module.exports = function(){
 
   //Crud users
   app.route('/admin/users').get(middlewareAuth.login_required, controllers.admin.users.index);
+  app.route('/admin/newuser').get(middlewareAuth.login_required, controllers.admin.users.newuser);
+  app.route('/admin/user/insert').post(middlewareAuth.login_required, controllers.admin.users.insert);
+  app.route('/admin/user/delete/:id').get(middlewareAuth.login_required, controllers.admin.users.delete);
 
 }

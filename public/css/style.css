@@ -272,3 +272,12 @@ nav a.button-collapse {
 footer.page-footer {
     margin-top: 0px !important;
 }
+
+/*Para recortar un texto*/
+.substring{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 20%;
+  display: inline-block;
+}
