@@ -7,7 +7,7 @@ import {Validators} from 'angular2/angular2';
 })
 @View({
   directives: [FORM_DIRECTIVES, NgIf],
-  templateUrl: "components/ng2-form-login/template/form-login.html"
+  templateUrl: "/publics/components/ng2-form-login/template/form-login.html"
 })
 class ComponentFormLogin {
   private myForm: ControlGroup;

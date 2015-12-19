@@ -7,13 +7,8 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  {{#if is_admin }}
-  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  {{else}}
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  {{/if}}
+  <link href="/publics/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/publics/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
 
@@ -31,17 +26,10 @@
       <nav id="nav_f" class="default_color" role="navigation">
           <div class="container">
               <div class="nav-wrapper">
-                {{#if is_admin }}
-                <a href="/admin" id="logo-container" class="brand-logo"> 
-                    <img src="../logo.png" height="50" style="margin-bottom: -12px;" />
+                 <a href="/admin" id="logo-container" class="brand-logo">
+                    <img src="/publics/logo.png" height="50" style="margin-bottom: -12px;" />
                     ItEngine
-                </a>
-                  {{else}}
-                <a href="/" id="logo-container" class="brand-logo">
-                    <img src="logo.png" height="50" style="margin-bottom: -12px;" />
-                    ItEngine
-                </a>
-                {{/if}}
+                 </a>
 
                   {{#if show_menu }}
                   <ul class="right hide-on-med-and-down">
@@ -77,29 +65,16 @@
 
   {{{body}}}
 
-
-
-  {{#if is_admin }}
   <!--  Scripts-->
   <script src="/scripts_bower/jquery/dist/jquery.min.js"></script>
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
-  <script src="../scripts/systemjs/dist/system.js"></script>
-  <script src="../scripts/typescript/lib/typescript.js"></script>
-  <script src="../components/config.js"></script>
-  <script src="../scripts/angular2/bundles/angular2.min.js"></script>
-  <script src="../scripts_bower/fetch/fetch.js"></script>
-  {{else}}
-  <!--  Scripts-->
-  <script src="/scripts_bower/jquery/dist/jquery.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="/publics/js/materialize.js"></script>
+  <script src="/publics/js/init.js"></script>
   <script src="/scripts/systemjs/dist/system.js"></script>
   <script src="/scripts/typescript/lib/typescript.js"></script>
-  <script src="components/config.js"></script>
+  <script src="/publics/components/config.js"></script>
   <script src="/scripts/angular2/bundles/angular2.min.js"></script>
   <script src="/scripts_bower/fetch/fetch.js"></script>
-  {{/if}}
+
 
   <!--  Scripts-->
   <script>

@@ -29,9 +29,9 @@ app.set('views', path.join(process.cwd(), 'app', 'views'));
 app.set('view engine', '.hbs');
 
 //Set folder static files
-app.use('/', express.static(process.cwd() + '/public'));
+app.use('/publics', express.static(process.cwd() + '/public'));
 //Servind modules node_modules in the url scripts
-app.use('/scripts', express.static(path.join(process.cwd(), '/node_modules')));
+app.use('/scripts', express.static(path.join(process.cwd() + '/node_modules')));
 //Setvind module bower_components in the url scripts
 app.use('/scripts_bower', express.static(path.join(process.cwd(), '/bower_components')));
 

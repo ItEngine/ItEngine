@@ -73,7 +73,7 @@ var ComponentFormLogin = (function () {
         }),
         angular2_1.View({
             directives: [angular2_2.FORM_DIRECTIVES, angular2_2.NgIf],
-            templateUrl: "components/ng2-form-login/template/form-login.html"
+            templateUrl: "/publics/components/ng2-form-login/template/form-login.html"
         }), 
         __metadata('design:paramtypes', [angular2_1.ElementRef, angular2_2.FormBuilder])
     ], ComponentFormLogin);

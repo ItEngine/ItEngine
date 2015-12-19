@@ -41,6 +41,20 @@ module.exports = {
     User.remove({ _id : req.params.id}, function (err) {
         res.redirect("/admin/users");
     });
-  }
+  },
+
+  //Display form updateuser
+  updateuser: function(req, res){
+    User.find({_id: req.params.id},function(err, docs){
+        if (err){
+            return false;
+        }
+        let email = docs[0].email;
+        return res.render("admin/users/userupdate", {
+          is_admin: true,
+          email: email
+        });
+    });
+  },
 
 }
