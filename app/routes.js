@@ -60,5 +60,6 @@ module.exports = function(){
   app.route('/admin/user/insert').post(middlewareAuth.login_required, controllers.admin.users.insert);
   app.route('/admin/user/delete/:id').get(middlewareAuth.login_required, controllers.admin.users.delete);
   app.route('/admin/updateuser/:id').get(middlewareAuth.login_required, controllers.admin.users.updateuser);
+  app.route('/admin/user/update').post(middlewareAuth.login_required, controllers.admin.users.update);
 
 }

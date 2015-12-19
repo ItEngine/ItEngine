@@ -45,15 +45,31 @@ module.exports = {
 
   //Display form updateuser
   updateuser: function(req, res){
-    User.find({_id: req.params.id},function(err, docs){
+    User.find({_id: req.params.id},function(err, doc){
         if (err){
             return false;
         }
-        let email = docs[0].email;
+        let email = doc[0].email;
         return res.render("admin/users/userupdate", {
           is_admin: true,
           email: email
         });
+    });
+  },
+
+  //Update password user
+  update: function(req, res){
+    let email = req.body.email;
+    let password = req.body.password;
+
+    let hashedPassword = crypto.createHash('sha512').update(password).digest('hex');
+
+    User.findOneAndUpdate({email: req.body.email}, {password: hashedPassword},function(err, user){
+      if(err){
+        return false;
+      }
+
+      res.redirect("/admin/users");
     });
   },
 
