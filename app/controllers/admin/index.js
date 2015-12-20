@@ -9,7 +9,12 @@ module.exports = {
 
   //Logout admin
   logout: function(req, res){
-    delete req.session.user;
-    return res.redirect("/login");
+    try {
+      delete req.session.user;
+    } catch (e) {
+      return res.render("500");
+    } finally {
+      return res.redirect("/login");
+    }
   }
 }

@@ -8,12 +8,16 @@ module.exports = {
 
   //Show admin
   index: function(req, res) {
-    User.find({}, function(err, data){
-      return res.render("admin/users/users", {
-        is_admin: true,
-        data: data
+    try {
+      User.find({}, function(err, data){
+        return res.render("admin/users/users", {
+          is_admin: true,
+          data: data
+        });
       });
-    });
+    } catch (e) {
+      return res.render("500");
+    }
   },
 
   //Display form newuser
@@ -30,10 +34,14 @@ module.exports = {
 
     let hashedPassword = crypto.createHash('sha512').update(password).digest('hex');
 
-    let user = new User({email: email, password: hashedPassword});
-    user.save(function(){
-      res.redirect("/admin/users");
-    })
+    try {
+      let user = new User({email: email, password: hashedPassword});
+      user.save(function(){
+        res.redirect("/admin/users");
+      });
+    } catch (e) {
+      return res.render("500");
+    }
   },
 
   //Delete record user
@@ -47,7 +55,7 @@ module.exports = {
   updateuser: function(req, res){
     User.find({_id: req.params.id},function(err, doc){
         if (err){
-            return false;
+          return res.render("500");
         }
         let email = doc[0].email;
         return res.render("admin/users/userupdate", {
@@ -66,7 +74,7 @@ module.exports = {
 
     User.findOneAndUpdate({email: req.body.email}, {password: hashedPassword},function(err, user){
       if(err){
-        return false;
+        return res.render("500");
       }
 
       res.redirect("/admin/users");
