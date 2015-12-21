@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-content">
-    <a href="/admin/newuser" class="waves-effect waves-light teal btn"> <span style="color: white">Agregar</span></a>
+    <a href="/admin/user/insert" class="waves-effect waves-light teal btn"> <span style="color: white">Agregar</span></a>
     <br>
     <br>
     <table class="striped row">
@@ -18,7 +18,7 @@
             <td class="col s4">{{email}}</td>
             <td class="col s3"><span class="substring">{{password}}</span></td>
             <td class="col s3">
-                <a href="/admin/updateuser/{{_id}}" class="waves-effect waves-light teal btn" style="margin: 5px"> <span style="color: white">Modificar</span></a>
+                <a href="/admin/user/update/{{_id}}" class="waves-effect waves-light teal btn" style="margin: 5px"> <span style="color: white">Modificar</span></a>
                 <a href="/admin/user/delete/{{_id}}" class="waves-effect waves-light red darken-1 btn" style="margin: 5px"> <span style="color: white">Eliminar</span></a>
             </td>
           </tr>

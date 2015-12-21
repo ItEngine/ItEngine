@@ -54,12 +54,21 @@ module.exports = function(){
   //Logout admin
   app.route('/admin/logout').get(middlewareAuth.login_required, controllers.admin.index.logout);
 
-  //Crud users
+  /* Crud users */
+  /*------------*/
   app.route('/admin/users').get(middlewareAuth.login_required, controllers.admin.users.index);
-  app.route('/admin/newuser').get(middlewareAuth.login_required, controllers.admin.users.newuser);
-  app.route('/admin/user/insert').post(middlewareAuth.login_required, controllers.admin.users.insert);
+
+  //Add user
+  app.route('/admin/user/insert')
+    .get(middlewareAuth.login_required, controllers.admin.users.newuser)
+    .post(middlewareAuth.login_required, controllers.admin.users.insert);
+
+  //Delete user
   app.route('/admin/user/delete/:id').get(middlewareAuth.login_required, controllers.admin.users.delete);
-  app.route('/admin/updateuser/:id').get(middlewareAuth.login_required, controllers.admin.users.updateuser);
-  app.route('/admin/user/update').post(middlewareAuth.login_required, controllers.admin.users.update);
+
+  //Update user
+  app.route('/admin/user/update/:id')
+    .get(middlewareAuth.login_required, controllers.admin.users.updateuser)
+    .post(middlewareAuth.login_required, controllers.admin.users.update);
 
 }

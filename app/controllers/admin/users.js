@@ -53,14 +53,16 @@ module.exports = {
 
   //Display form updateuser
   updateuser: function(req, res){
-    User.find({_id: req.params.id},function(err, doc){
+    let id = req.params.id;
+    User.find({_id: id},function(err, doc){
         if (err){
           return res.render("500");
         }
         let email = doc[0].email;
         return res.render("admin/users/userupdate", {
           is_admin: true,
-          email: email
+          email: email,
+          id: id
         });
     });
   },

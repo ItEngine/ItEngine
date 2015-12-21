@@ -5,7 +5,7 @@
          <i class="tiny material-icons">info_outline</i> <span class="grey-text text-darken-4" id="result"></span>
       </div>
       <div class="row">
-         <form method="POST" action="/admin/user/update">
+         <form method="POST" action="/admin/user/update/{{ id }}">
            <div class="row">
              <div class="input-field">
                <input id="email" type="email" name="email" value="{{email}}" readonly>
