@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/product/insert" class="waves-effect waves-light teal btn"> <span style="color: white">Agregar</span></a>
+    <br>
+    <br>
+    <table class="striped row">
+       <thead>
+         <tr>
+             <th class="col s3">Producto</th>
+             <th class="col s2">Precio</th>
+             <th class="col s3">Url</th>
+             <th class="col s3">Acciones</th>
+         </tr>
+       </thead>
+
+       <tbody>
+         {{#each data}}
+           <tr>
+            <td class="col s3">{{name}}</td>
+            <td class="col s2">{{price}}</td>
+            <td class="col s3"><span class="substring"><a href="{{url}}" target="_blank">{{url}}</a></span></td>
+            <td class="col s3">
+                <a href="/admin/product/update/{{_id}}" class="waves-effect waves-light teal btn" style="margin: 5px"> <span style="color: white">Modificar</span></a>
+                <a href="/admin/product/delete/{{_id}}" class="waves-effect waves-light red darken-1 btn" style="margin: 5px"> <span style="color: white">Eliminar</span></a>
+            </td>
+          </tr>
+          {{/each}}
+       </tbody>
+     </table>
+  </div>
+</div>

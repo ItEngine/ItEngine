@@ -71,4 +71,21 @@ module.exports = function(){
     .get(middlewareAuth.login_required, controllers.admin.users.updateuser)
     .post(middlewareAuth.login_required, controllers.admin.users.update);
 
+    /* Crud Products */
+    /*------------*/
+    app.route('/admin/products').get(middlewareAuth.login_required, controllers.admin.products.index);
+
+    //Add user
+    app.route('/admin/product/insert')
+      .get(middlewareAuth.login_required, controllers.admin.products.newproduct)
+      .post(middlewareAuth.login_required, controllers.admin.products.insert);
+
+    //Delete user
+    app.route('/admin/product/delete/:id').get(middlewareAuth.login_required, controllers.admin.products.delete);
+
+    //Update user
+    app.route('/admin/product/update/:id')
+      .get(middlewareAuth.login_required, controllers.admin.products.updateproduct)
+      .post(middlewareAuth.login_required, controllers.admin.products.update);
+
 }
