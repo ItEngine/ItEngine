@@ -75,6 +75,9 @@ module.exports = function(){
     /*------------*/
     app.route('/admin/products').get(middlewareAuth.login_required, controllers.admin.products.index);
 
+    //Import
+    app.route('/admin/products/import').post(middlewareAuth.login_required, controllers.admin.products.import);
+
     //Add user
     app.route('/admin/product/insert')
       .get(middlewareAuth.login_required, controllers.admin.products.newproduct)

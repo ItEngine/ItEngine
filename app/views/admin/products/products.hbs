@@ -1,5 +1,10 @@
 <div class="card">
   <div class="card-content">
+    <form method="POST" action="/admin/products/import" enctype="multipart/form-data">
+        <input type="file" name="archivo" />
+        <input type="submit" class="waves-effect waves-light teal btn" value="Importar XLS" />
+    </form>
+    <br>
     <a href="/admin/product/insert" class="waves-effect waves-light teal btn"> <span style="color: white">Agregar</span></a>
     <br>
     <br>

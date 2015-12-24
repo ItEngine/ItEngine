@@ -1,12 +1,15 @@
 'use strict'
 
+const XLSX = require('xlsx');
+const fs = require('fs-extra');
+const path = require('path');
 //Model product
 const Product = require("../../models/product.js");
 
 module.exports = {
 
   //Show admin
-  index: function(req, res) {
+  index: function(req, res){
     try {
       Product.find({}, function(err, data){
         return res.render("admin/products/products", {
@@ -17,6 +20,36 @@ module.exports = {
     } catch (e) {
       return res.render("500");
     }
+  },
+
+  //Import file xls and load in mongodb
+  import: function(req, res){
+    //Upload file
+    req.pipe(req.busboy);
+    req.busboy.on('file', function (fieldname, file, filename) {
+      //Create file in public/upload
+      let pathFile = process.cwd() + '/public/upload/' + filename;
+      let fstream = fs.createWriteStream(pathFile);
+      file.pipe(fstream);
+      fstream.on('close', function () {
+          console.log("Upload Finished of " + filename);
+          //Read xls
+          let workbook = XLSX.readFile(pathFile);
+          let sheet_name_list = workbook.SheetNames;
+          let i=1;
+          sheet_name_list.forEach(function(y) { /* iterate through sheets */
+            let worksheet = workbook.Sheets[y];
+            for (let z in worksheet){
+              if(z[0] === '!') continue;
+              i++;
+              let item = worksheet[z].v;
+              if(i>4){
+                console.log(item);
+              }
+            }
+          });
+      });
+    });
   },
 
   //Display form new product

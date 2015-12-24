@@ -5,6 +5,7 @@ const path = require('path');
 
 //All requires packages nodejs
 const bodyParser = require('body-parser');
+const busboy = require('connect-busboy');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const exphbs = require('express-handlebars');
@@ -14,6 +15,9 @@ const MongoStore = require('connect-mongo')(session);
 
 //Init server express
 const app = express();
+
+//For upload files
+app.use(busboy());
 
 //Set setting file config.js
 app.set('settings', require(path.join(process.cwd(), 'app', 'config')));
