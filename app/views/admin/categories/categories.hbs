@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/category/insert" class="waves-effect waves-light teal btn"> <span style="color: white">Agregar</span></a>
+    <br>
+    <br>
+    <table class="striped row">
+       <thead>
+         <tr>
+             <th class="col s4">Id</th>
+             <th class="col s3">Nombre</th>
+         </tr>
+       </thead>
+
+       <tbody>
+         {{#each data}}
+           <tr>
+            <td class="col s4">{{idcateg}}</td>
+            <td class="col s3"><span class="substring">{{name}}</span></td>
+            <td class="col s3">
+                <a href="/admin/category/update/{{_id}}" class="waves-effect waves-light teal btn" style="margin: 5px"> <span style="color: white">Modificar</span></a>
+                <a href="/admin/category/delete/{{_id}}" class="waves-effect waves-light red darken-1 btn" style="margin: 5px"> <span style="color: white">Eliminar</span></a>
+            </td>
+          </tr>
+          {{/each}}
+       </tbody>
+     </table>
+  </div>
+</div>
