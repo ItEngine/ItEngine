@@ -3,3 +3,7 @@
 /app/config.js
 /public/upload/*.xlsx
 /docs
+/public/boot.contact.js
+/public/boot.contact.js.map
+/public/boot.login.js
+/public/boot.login.js.map

@@ -26,7 +26,7 @@
       <nav id="nav_f" class="default_color" role="navigation">
           <div class="container">
               <div class="nav-wrapper">
-                 <a href="/admin" id="logo-container" class="brand-logo">
+                 <a href="/" id="logo-container" class="brand-logo">
                     <img src="/publics/logo.png" height="50" style="margin-bottom: -12px; margin-right: 0.1em" />ItEngine
                  </a>
 
@@ -69,12 +69,14 @@
   <script src="/scripts_bower/jquery/dist/jquery.min.js"></script>
   <script src="/publics/js/materialize.js"></script>
   <script src="/publics/js/init.js"></script>
-  <script src="/scripts/systemjs/dist/system.js"></script>
-  <script src="/scripts/typescript/lib/typescript.js"></script>
-  <script src="/publics/components/config.js"></script>
-  <script src="/scripts/angular2/bundles/angular2.min.js"></script>
   <script src="/scripts_bower/fetch/fetch.js"></script>
 
+  <script src="/scripts/es6-shim/es6-shim.min.js"></script>
+  <script src="/scripts/systemjs/dist/system-polyfills.js"></script>
+  <script src="/scripts/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="/scripts/systemjs/dist/system.src.js"></script>
+  <script src="/scripts/rxjs/bundles/Rx.js"></script>
+  <script src="/scripts/angular2/bundles/angular2.dev.js"></script>
 
   <!--  Scripts-->
   <script>

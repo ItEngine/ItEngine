@@ -4,14 +4,15 @@
 const path = require('path');
 const fs = require('fs');
 
-//My instance of app.js (this found because previosly export)
-const app = require(path.join(process.cwd(), 'app'));
-
-//Middleware of authentication
-const middlewareAuth = require("./middlewares/auth");
-
 //For get sync folder files controllers
 const glob = require('glob');
+//For auth
+const passport = require('passport');
+
+//My instance of app.js (this found because previosly export)
+const app = require(path.join(process.cwd(), 'app'));
+//Middleware of authentication
+const middlewareAuth = require("./middlewares/auth");
 
 //Load arrays with require controllers
 let controllers = {};
@@ -32,7 +33,6 @@ files.forEach(function(file) {
 
 // Routes of application
 module.exports = function(){
-
   /*Main routes */
 
   //Index
@@ -44,9 +44,8 @@ module.exports = function(){
   /* Routes admin */
 
   //login
-  app.route('/login')
-    .get(middlewareAuth.is_logging, controllers.login.main)
-    .post(controllers.login.login);
+  app.get("/login", middlewareAuth.is_logging, controllers.login.main);
+  app.post('/login', passport.authenticate('local', {successRedirect: '/admin/'}));
 
   //Home
   app.route('/admin').get(middlewareAuth.login_required, controllers.admin.index.main);

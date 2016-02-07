@@ -7,22 +7,27 @@ const path = require('path');
 const app = require(path.join(process.cwd(), 'app'));
 
 const nodemailer = require("nodemailer");
+const smtpTransport = require("nodemailer-smtp-transport");
 
 // Controller email
-
 module.exports = {
 
   //This method send email
   indexFormContact: function(req, res) {
+    //Get email
     const emailItEngine = app.get('settings').contact.email;
+
     //Config smtp email
-    let smtpTransport = nodemailer.createTransport("SMTP",{
+    let options = {
        service: app.get('settings').contact.service,
        auth: {
            user: emailItEngine,
            pass: app.get('settings').contact.password
        }
-    });
+    };
+
+    //Create transport
+    let transport = nodemailer.createTransport(smtpTransport(options));
 
     //Email data
     let mailOptions={
@@ -32,7 +37,7 @@ module.exports = {
     }
 
     //Sent emails
-    smtpTransport.sendMail(mailOptions, function(error, response){
+    transport.sendMail(mailOptions, function(error, response){
       if(error){
         console.log(error);
         return res.end("Error al enviar el email.");
