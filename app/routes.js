@@ -70,41 +70,4 @@ module.exports = function(){
     .get(middlewareAuth.login_required, controllers.admin.users.updateuser)
     .post(middlewareAuth.login_required, controllers.admin.users.update);
 
-  /* Crud Products */
-  /*------------*/
-  app.route('/admin/products').get(middlewareAuth.login_required, controllers.admin.products.index);
-
-  //Import
-  app.route('/admin/products/import').post(middlewareAuth.login_required, controllers.admin.products.import);
-
-  //Add product
-  app.route('/admin/product/insert')
-    .get(middlewareAuth.login_required, controllers.admin.products.newproduct)
-    .post(middlewareAuth.login_required, controllers.admin.products.insert);
-
-  //Delete product
-  app.route('/admin/product/delete/:id').get(middlewareAuth.login_required, controllers.admin.products.delete);
-
-  //Update product
-  app.route('/admin/product/update/:id')
-    .get(middlewareAuth.login_required, controllers.admin.products.updateproduct)
-    .post(middlewareAuth.login_required, controllers.admin.products.update);
-
-  /* Crud Categories */
-  /*------------*/
-  app.route('/admin/categories').get(middlewareAuth.login_required, controllers.admin.categories.index);
-
-  //Add category
-  app.route('/admin/category/insert')
-    .get(middlewareAuth.login_required, controllers.admin.categories.newcategory)
-    .post(middlewareAuth.login_required, controllers.admin.categories.insert);
-
-  //Delete category
-  app.route('/admin/category/delete/:id').get(middlewareAuth.login_required, controllers.admin.categories.delete);
-
-  //Update category
-  app.route('/admin/category/update/:id')
-    .get(middlewareAuth.login_required, controllers.admin.categories.updatecategory)
-    .post(middlewareAuth.login_required, controllers.admin.categories.update);
-
 }
