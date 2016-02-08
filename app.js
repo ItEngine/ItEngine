@@ -5,7 +5,6 @@ const path = require('path');
 
 //All requires packages nodejs
 const bodyParser = require('body-parser');
-const busboy = require('connect-busboy');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const exphbs = require('express-handlebars');
@@ -32,9 +31,6 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: (24*3600*1000*30), expires: false}, // 30 Days in ms
 }));
-
-//For upload files
-app.use(busboy());
 
 //Connect to database
 mongoose.connect('mongodb://' + app.get('settings').database.domain + '/' + app.get('settings').database.name);
