@@ -70,4 +70,21 @@ module.exports = function(){
     .get(middlewareAuth.login_required, controllers.admin.users.updateuser)
     .post(middlewareAuth.login_required, controllers.admin.users.update);
 
+  /* Crud sites */
+  /*------------*/
+  app.route('/admin/sites').get(middlewareAuth.login_required, controllers.admin.sites.index);
+
+  //Add site
+  app.route('/admin/site/insert')
+    .get(middlewareAuth.login_required, controllers.admin.sites.newsite)
+    .post(middlewareAuth.login_required, controllers.admin.sites.insert);
+
+  //Delete site
+  app.route('/admin/site/delete/:id').get(middlewareAuth.login_required, controllers.admin.sites.delete);
+
+  //Update site
+  app.route('/admin/site/update/:id')
+    .get(middlewareAuth.login_required, controllers.admin.sites.updatesite)
+    .post(middlewareAuth.login_required, controllers.admin.sites.update);
+
 }

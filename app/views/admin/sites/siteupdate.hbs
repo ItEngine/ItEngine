@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="col m10 offset-m1 s12">
+      <h2 class="header text_b">Modificar sitio </h2>
+      <div class="card-panel" id="result_card" style="display: none">
+         <i class="tiny material-icons">info_outline</i> <span class="grey-text text-darken-4" id="result"></span>
+      </div>
+      <div class="row">
+         <form method="POST" action="/admin/site/update/{{ doc._id }}">
+           <div class="row">
+             <div class="input-field">
+               <input id="company" type="text" name="company" required value="{{ doc.company }}">
+               <label for="company">Empresa</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field">
+               <input id="type_company" type="text" name="type_company" required value="{{ doc.type_company }}">
+               <label for="type_company">Tipo de empresa</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field">
+               <input id="site_company" type="url" name="site_company" required value="{{ doc.site_company }}">
+               <label for="site_company">Url</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field">
+               <textarea id="descrip" type="text" class="materialize-textarea" name="descrip" required rows="4" cols="5">{{ doc.descrip }}</textarea>
+               <label for="descrip">Descripción</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field">
+               <input id="tecnologies" type="text" name="tecnologies" required value="{{ doc.tecnologies }}">
+               <label for="tecnologies">Tecnologías</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field">
+               <input id="photo" type="text" name="photo" required value="{{ doc.photo }}">
+               <label for="photo">Foto</label>
+             </div>
+           </div>
+           <button class="btn-large waves-effect waves-light teal default_color scrollspy" type="submit" name="action">Grabar
+              <i class="material-icons right">send</i>
+           </button>
+         </form>
+       </div>
+  </div>
+ </div>
