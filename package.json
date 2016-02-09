@@ -23,7 +23,7 @@
     "glob": "^6.0.4",
     "mongoose": "^4.4.2",
     "ng2-contact-form": "^1.0.7",
-    "ng2-login-form": "^1.0.4",
+    "ng2-login-form": "^1.0.6",
     "nodemailer": "^2.1.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
