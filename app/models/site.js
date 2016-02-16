@@ -9,7 +9,7 @@ let Site = new Schema({
     type_company: {type: String, required: true},
     site_company   : {type: String, required: true},
     tecnologies   : {type: String, required: true},
-    photo   : {type: String, required: true}
+    photo   : {type: String}
 });
 
 module.exports = mongoose.model('site', Site);

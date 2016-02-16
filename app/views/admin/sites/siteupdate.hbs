@@ -5,7 +5,7 @@
          <i class="tiny material-icons">info_outline</i> <span class="grey-text text-darken-4" id="result"></span>
       </div>
       <div class="row">
-         <form method="POST" action="/admin/site/update/{{ doc._id }}">
+         <form method="POST" action="/admin/site/update/{{ doc._id }}" enctype="multipart/form-data">
            <div class="row">
              <div class="input-field">
                <input id="company" type="text" name="company" required value="{{ doc.company }}">
@@ -37,9 +37,14 @@
              </div>
            </div>
            <div class="row">
-             <div class="input-field">
-               <input id="photo" type="text" name="photo" required value="{{ doc.photo }}">
-               <label for="photo">Foto</label>
+             <div class="file-field input-field">
+                <div class="btn-large waves-effect waves-light teal default_color scrollspy">
+                  <span>Foto </span>
+                  <input type='file' id="photo" name='photo'>
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path" type="text" disabled="disabled" required value="{{ doc.photo }}">
+                </div>
              </div>
            </div>
            <button class="btn-large waves-effect waves-light teal default_color scrollspy" type="submit" name="action">Grabar

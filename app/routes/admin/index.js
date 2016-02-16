@@ -1,5 +1,8 @@
 'use strict';
 
+//For upload files
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart();
 //For auth
 const passport = require('passport');
 
@@ -42,7 +45,7 @@ var routesAdminIndex = function(app, controllers){
   //Add site
   app.route('/admin/site/insert')
     .get(middlewareAuth.login_required, controllers.admin.sites.newsite)
-    .post(middlewareAuth.login_required, controllers.admin.sites.insert);
+    .post(middlewareAuth.login_required, multipartMiddleware, controllers.admin.sites.insert);
 
   //Delete site
   app.route('/admin/site/delete/:id').get(middlewareAuth.login_required, controllers.admin.sites.delete);
@@ -50,7 +53,7 @@ var routesAdminIndex = function(app, controllers){
   //Update site
   app.route('/admin/site/update/:id')
     .get(middlewareAuth.login_required, controllers.admin.sites.updatesite)
-    .post(middlewareAuth.login_required, controllers.admin.sites.update);
+    .post(middlewareAuth.login_required, multipartMiddleware, controllers.admin.sites.update);
 
 }
 
