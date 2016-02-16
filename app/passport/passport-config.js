@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 
-const User = require("./models/user.js");
+const User = require("../models/user.js");
 
 //Config password for authenticate local
 const passportConfig = function (server) {
