@@ -55,6 +55,23 @@ var routesAdminIndex = function(app, controllers){
     .get(middlewareAuth.login_required, controllers.admin.sites.updatesite)
     .post(middlewareAuth.login_required, multipartMiddleware, controllers.admin.sites.update);
 
+  /* Crud portfolio */
+  /*------------*/
+  app.route('/admin/portfolio').get(middlewareAuth.login_required, controllers.admin.portfolio.index);
+
+  //Add site
+  app.route('/admin/portfolio/insert')
+    .get(middlewareAuth.login_required, controllers.admin.portfolio.newportfolio)
+    .post(middlewareAuth.login_required, multipartMiddleware, controllers.admin.portfolio.insert);
+
+  //Delete site
+  app.route('/admin/portfolio/delete/:id').get(middlewareAuth.login_required, controllers.admin.portfolio.delete);
+
+  //Update site
+  app.route('/admin/portfolio/update/:id')
+    .get(middlewareAuth.login_required, controllers.admin.portfolio.updateportfolio)
+    .post(middlewareAuth.login_required, multipartMiddleware, controllers.admin.portfolio.update);
+
 }
 
 module.exports = routesAdminIndex;

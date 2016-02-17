@@ -1,5 +1,6 @@
 'use strict'
 
+const Portfolio = require("../models/portfolio.js");
 const Site = require("../models/site.js");
 
 module.exports = {
@@ -30,5 +31,12 @@ module.exports = {
     } catch (e) {
       return res.render("500");
     }
+  },
+
+  //See all portfolio
+  portfolio: function(req, res){
+    Portfolio.find({}, function(err, data){
+      return res.render('portfolio', {show_menu: true, portfolio: data});
+    });
   }
 }
