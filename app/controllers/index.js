@@ -1,5 +1,7 @@
 'use strict'
 
+const paginate = require('express-paginate');
+
 const Portfolio = require("../models/portfolio.js");
 const Site = require("../models/site.js");
 
@@ -35,8 +37,22 @@ module.exports = {
 
   //See all portfolio
   portfolio: function(req, res){
-    Portfolio.find({}, function(err, data){
-      return res.render('portfolio', {show_menu: true, portfolio: data});
+    Portfolio.paginate({}, { page: req.query.page, limit: req.query.limit }, function(err, data, pageCount, itemCount) {
+      //Init object pages
+      let pages = {
+        total: []
+      };
+
+      //Seto to array count pages
+      for(let i=1;i<=data.pages;i++){
+        pages.total.push(i);
+      }
+
+      return res.render('portfolio', {
+        show_menu: true,
+        portfolio: data,
+        pages: pages
+      });
     });
   }
 }

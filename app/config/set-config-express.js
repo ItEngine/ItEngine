@@ -5,19 +5,22 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const paginate = require('express-paginate');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 
-var expressConfig = function(app){
+const helpers = require("../helpers/hbs/helpers");
+
+const expressConfig = function(app){
   //Set setting file config.js
   app.set('settings', require('./config'));
   //Export data config for used in tempate
   app.locals.settings = app.get('settings');
 
   // Configure express to use handlebars templates
-  app.engine('.hbs', exphbs({ layoutsDir: "app/views/layouts", defaultLayout: 'main', extname: '.hbs' }));
+  app.engine('.hbs', exphbs({ layoutsDir: "app/views/layouts", defaultLayout: 'main', extname: '.hbs', helpers: helpers }));
   app.set('views', path.join(process.cwd(), 'app', 'views'));
   app.set('view engine', '.hbs');
 
@@ -48,6 +51,9 @@ var expressConfig = function(app){
   app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
   }));
+
+  //For pagination
+  app.use(paginate.middleware(10, 50));
 
   //Connect to database
   mongoose.connect('mongodb://' + app.get('settings').database.domain + '/' + app.get('settings').database.name);

@@ -4,7 +4,7 @@
         <br>
         <h2 class="header text_b">Portfolio </h2>
         <div class="row">
-           {{#each portfolio}}
+           {{#each portfolio.docs}}
              <div class="col s12 m4 l4">
                  <div class="card">
                      <div class="card-image waves-effect waves-block waves-light">
@@ -23,5 +23,17 @@
              </div>
            {{/each}}
         </div>
+
+        <ul class="pagination">
+          <li class="waves-effect"><a href="?page=1"><i class="material-icons">chevron_left</i></a></li>
+          {{#each pages.total}}
+            {{#ifCond this ../portfolio.page }}
+              <li class="active"><a href="?page={{ this }}">{{ this }}</a></li>
+            {{ else }}
+              <li class="waves-effect"><a href="?page={{ this }}">{{ this }}</a></li>
+            {{/ifCond}}
+          {{/each}}
+          <li class="waves-effect"><a href="?page={{ portfolio.pages }}"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
   </div>
 </div>
