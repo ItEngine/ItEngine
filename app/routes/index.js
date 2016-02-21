@@ -1,6 +1,6 @@
 'use strict';
 
-var routesIndex = function(app, controllers){
+const routesIndex = function(app, controllers){
 
   //Index
   app.route('/').get(controllers.index.main);

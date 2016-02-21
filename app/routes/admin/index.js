@@ -9,7 +9,7 @@ const passport = require('passport');
 //Middleware of authentication
 const middlewareAuth = require("../../middlewares/auth");
 
-var routesAdminIndex = function(app, controllers){
+const routesAdminIndex = function(app, controllers){
 
   //login
   app.get("/login", middlewareAuth.is_logging, controllers.login.main);
