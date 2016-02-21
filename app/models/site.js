@@ -8,7 +8,6 @@ let Site = new Schema({
     company   : {type: String, required: true},
     type_company: {type: String, required: true},
     site_company   : {type: String, required: true},
-    tecnologies   : {type: String, required: true},
     photo   : {type: String}
 });
 

@@ -113,14 +113,12 @@ var self = {
     let descrip = req.body.descrip;
     let company = req.body.company;
     let site_company = req.body.site_company;
-    let tecnologies = req.body.tecnologies;
     let type_company = req.body.type_company;
 
     let objNewSite = {
       descrip: descrip,
       company: company,
       site_company: site_company,
-      tecnologies: tecnologies,
       type_company: type_company
     };
 
@@ -140,14 +138,12 @@ var self = {
     let descrip = req.body.descrip;
     let company = req.body.company;
     let site_company = req.body.site_company;
-    let tecnologies = req.body.tecnologies;
     let type_company = req.body.type_company;
 
     let objUpdateSite = {
       descrip: descrip,
       company: company,
       site_company: site_company,
-      tecnologies: tecnologies,
       type_company: type_company
     }
 
