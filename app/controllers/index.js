@@ -10,18 +10,6 @@ module.exports = {
     try {
       //Component contact-form
       let component = `
-          System.config({
-            paths: {
-                'ng2-contact-form/*': 'scripts/ng2-contact-form/*.js',
-            },
-            packages: {
-              publics: {
-                format: 'register',
-                defaultExtension: 'js'
-              }
-            }
-          });
-
           System.import('publics/boot.contact')
             .then(null, console.error.bind(console));
       `;

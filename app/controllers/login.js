@@ -9,18 +9,6 @@ module.exports = {
   //Show form login
   main: function(req, res) {
     let component = `
-        System.config({
-          paths: {
-              'ng2-login-form/*': 'scripts/ng2-login-form/*.js',
-          },
-          packages: {
-            publics: {
-              format: 'register',
-              defaultExtension: 'js'
-            }
-          }
-        });
-
         System.import('publics/boot.login')
           .then(null, console.error.bind(console));
     `;

@@ -82,7 +82,28 @@
 
   <!--  Scripts-->
   <script>
-      {{{ component }}}
+    System.config({
+      packages: {
+        publics: {
+          format: 'register',
+          defaultExtension: 'js'
+        },
+        'scripts/ng2-contact-form': {
+          format: 'register',
+          defaultExtension: 'js'
+        },
+        'scripts/ng2-login-form': {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      },
+      map: {
+        'ng2-contact-form': 'scripts/ng2-contact-form',
+        'ng2-login-form': 'scripts/ng2-login-form',
+      }
+    });
+
+    {{{ component }}}
   </script>
 
   </body>
