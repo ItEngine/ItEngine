@@ -18,3 +18,9 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASEDIR, 'database.db')
 # Use a secure, unique and absolutely secret key for
 # signing the data.
 CSRF_SESSION_KEY = "secret-csrf-flask-app"
+
+MAIL_SERVER = "smtp.gmail.com"
+MAIL_PORT = 465
+MAIL_USE_SSL = True
+MAIL_USERNAME = ''
+MAIL_PASSWORD = ''
