@@ -5,10 +5,17 @@ from apps.main import models
 from apps.utils import MiximJson
 
 
-class GetUsers(Resource, MiximJson):
+class GetSites(Resource, MiximJson):
     def get(self):
-        users = models.User.query.all()
+        users = models.Site.query.all()
         return self.to_json(users)
 
 
-api.add_resource(GetUsers, '/api/getusers')
+class GetPortfolio(Resource, MiximJson):
+    def get(self):
+        users = models.Portfolio.query.all()
+        return self.to_json(users)
+
+
+api.add_resource(GetSites, '/api/getsites')
+api.add_resource(GetPortfolio, '/api/getportfolio')
