@@ -1,9 +1,6 @@
-/node_modules
-/bower_components
-/app/config/config.js
-/public/upload/*.xlsx
-/docs
-/public/boot.contact.js
-/public/boot.contact.js.map
-/public/boot.login.js
-/public/boot.login.js.map
+*.pyc
+__pycache__
+static/node_modules/
+database.db
+migrations
+conf/config_local.py

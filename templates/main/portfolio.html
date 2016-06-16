@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<!--Portfolio-->
+<div class="section scrollspy" id="clientes" style="background: rgb(247,247,247);">
+    <div class="container">
+        <br>
+        <h2 class="header text_b">Portfolio </h2>
+        <div class="row">
+           {% for portfolio in portfolios %}
+             <div class="col s12 m4 l4">
+                 <div class="card">
+                     <div class="card-image waves-effect waves-block waves-light">
+                         <img class="activator" src="{{ url_for('static', filename='portfolio/') }}{{ portfolio.photo }}">
+                     </div>
+                     <div class="card-content">
+                         <span class="card-title activator grey-text text-darken-4" style="font-size: 1.5em">{{ portfolio.name }} <i class="mdi-navigation-more-vert right"></i></span>
+                         <p><a href="{{ portfolio.site_url }}" target="_blank"> Ver sitio</a></p>
+                     </div>
+                     <div class="card-reveal">
+                         <span class="card-title grey-text text-darken-4">{{ portfolio.name }} <i class="mdi-navigation-close right"></i></span>
+                         <p>{{ portfolio.descrip }}</p>
+                         <p>Tecnologías: {{ portfolio.tecnologies }}</p>
+                     </div>
+                 </div>
+             </div>
+           {% endfor %}
+        </div>
+        {{ pagination.links }}
+  </div>
+</div>
+
+{% endblock %}
