@@ -1,5 +1,7 @@
 from flask import render_template
+
 from app import app
+from apps.utils import include
 
 
 # HTTP error handling
@@ -12,3 +14,6 @@ def not_found(error):
 @app.errorhandler(500)
 def not_found(error):
     return render_template('500.html'), 500
+
+# Declare imports url modules
+include("apps.main.urls")

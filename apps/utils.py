@@ -1,3 +1,4 @@
+import importlib
 from math import ceil
 
 import flask_login as login
@@ -68,3 +69,14 @@ class MiximJson(object):
         ]
 
         return jsonify(json_list=serialized_labels)
+
+
+def include(url):
+    """
+    Include import dynamic
+    """
+    try:
+        importlib.import_module(url)
+    except ImportError:
+        pass
+
