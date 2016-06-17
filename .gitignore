@@ -1,6 +1,9 @@
 *.pyc
 __pycache__
 static/node_modules/
+static/upload/portfolio/
+static/upload/site/
 database.db
 migrations
 conf/config_local.py
+

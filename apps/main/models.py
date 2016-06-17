@@ -2,6 +2,7 @@ import datetime
 
 from flask import Blueprint
 from sqlalchemy import event
+from sqlalchemy.event import listens_for
 from werkzeug.security import generate_password_hash
 
 from app import db, login_manager
@@ -71,7 +72,7 @@ class Site(db.Model):
     descrip = db.Column(db.String(500), nullable=False)
     type_company = db.Column(db.String(50), nullable=False)
     site_company = db.Column(db.String(120), nullable=False)
-    photo = db.Column(db.String(120))
+    photo = db.Column(db.Unicode(128))
 
 
 class Portfolio(db.Model):
@@ -85,4 +86,4 @@ class Portfolio(db.Model):
     descrip = db.Column(db.String(500), nullable=False)
     tecnologies = db.Column(db.String(50), nullable=False)
     site_url = db.Column(db.String(120), nullable=False)
-    photo = db.Column(db.String(120))
+    photo = db.Column(db.Unicode(128))
