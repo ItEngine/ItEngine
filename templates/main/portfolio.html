@@ -10,9 +10,9 @@
         <div class="row">
            {% for portfolio in portfolios %}
              <div class="col s12 m4 l4">
-                 <div class="card" style="min-height: 400px">
+                 <div class="card" style="min-height: 300px">
                      <div class="card-image waves-effect waves-block waves-light">
-                         <img class="activator" src="{{ url_for('static', filename='upload/portfolio/') }}{{ portfolio.photo }}" height="180">
+                         <img class="activator" src="{{ url_for('static', filename='upload/portfolio/') }}{{ portfolio.photo }}">
                      </div>
                      <div class="card-content">
                          <span class="card-title activator grey-text text-darken-4" style="font-size: 1.5em">{{ portfolio.name }} <i class="mdi-navigation-more-vert right"></i></span>
